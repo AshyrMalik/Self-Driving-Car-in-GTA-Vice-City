@@ -69,7 +69,7 @@ class GameAI:
 
                     # Get model predictions
                     try:
-                        predictions = torch.tensor([[True, False, False, False]])  # Force only forward (W)
+                        predictions = torch.tensor([[True, False, True, False]]) # Force w and left
                         # Log the forced predictions
                         print(f"Forced predictions: {predictions}")
                         self.game_controller.handle_prediction(predictions)
