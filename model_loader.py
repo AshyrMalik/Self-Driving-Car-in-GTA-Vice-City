@@ -32,10 +32,10 @@ class ModelHandler:
             raise
 
     def predict(self, frame):
-        input_tensor = self.transform(frame).unsqueeze(0).to(self.device)  # Ensure input is sent to the correct device
-        print(f"Input tensor shape: {input_tensor.shape}")
+        input_tensor = self.transform(frame).unsqueeze(0).to(self.device)
         with torch.no_grad():
             output = self.model.model(input_tensor)
-            print(f"Model raw output: {output}")
-            prediction = (torch.sigmoid(output) > PREDICTION_THRESHOLD).cpu()  # Ensure output remains on CPU
+            prediction = output > PREDICTION_THRESHOLD  # Apply thresholding
+        print(f"Model raw output: {output}")
+        print(f"Thresholded predictions: {prediction}")
         return prediction

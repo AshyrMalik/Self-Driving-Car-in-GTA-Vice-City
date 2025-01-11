@@ -69,9 +69,9 @@ class GameAI:
 
                     # Get model predictions
                     try:
-                        predictions = torch.tensor([[True, False, True, False]]) # Force w and left
-                        # Log the forced predictions
-                        print(f"Forced predictions: {predictions}")
+                        predictions = self.model_handler.predict(frame)  # Use the trained model
+                        print(f"Model predictions: {predictions}")  # Log predictions
+
                         self.game_controller.handle_prediction(predictions)
                     except Exception as e:
                         print(f"Prediction error: {e}")
