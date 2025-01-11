@@ -24,6 +24,23 @@ class GameController:
             self.press_key('d')
         else:
             self.release_all_keys()
+            return
+
+        # Release keys that are no longer needed
+        keys_to_release = self.current_keys - keys_to_press
+        for key in keys_to_release:
+            self.release_key(key)
+
+        # Press new keys
+        keys_to_press_new = keys_to_press - self.current_keys
+        for key in keys_to_press_new:
+            self.press_key(key)
+
+        # Update current keys
+        self.current_keys = keys_to_press
+
+        # Debugging: Log the current state
+        print(f"Keys to press: {keys_to_press}, Keys to release: {keys_to_release}")
 
     def press_key(self, key):
         """Press a specific key"""
