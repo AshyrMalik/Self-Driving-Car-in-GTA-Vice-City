@@ -20,9 +20,11 @@ class ModelHandler:
 
     def load_model(self):
         try:
-            # Load the checkpoint with correct device mapping
-            checkpoint = torch.load(MODEL_PATH,
-                                    map_location=self.device)
+            # Load the checkpoint
+            checkpoint = torch.load(MODEL_PATH, map_location=self.device)
+            print(f"Loaded checkpoint keys: {checkpoint.keys()}")
+
+            # Load state_dict
             self.model.model.load_state_dict(checkpoint['model_state_dict'])
             self.model.model.to(self.device)
             self.model.model.eval()
