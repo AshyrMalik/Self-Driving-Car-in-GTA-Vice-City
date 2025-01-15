@@ -37,7 +37,7 @@ class GameAI:
         print("Controls:")
         print("- Press 'Q' to quit")
         print("- Press 'P' to pause/unpause")
-        print("- Press 'V' to toggle visualization")
+
 
         paused = False
         show_viz = True
