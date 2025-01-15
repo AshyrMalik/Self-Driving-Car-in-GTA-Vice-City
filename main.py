@@ -1,9 +1,7 @@
 import time
 import keyboard
 import cv2
-import torch
-import numpy as np
-from config import LOOP_DELAY, GAME_WINDOW, MODEL_PATH
+from config import LOOP_DELAY
 from model_loader import ModelHandler
 from screen_capture import ScreenCapture
 from game_control import GameController
