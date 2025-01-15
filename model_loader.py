@@ -38,6 +38,5 @@ class ModelHandler:
         with torch.no_grad():
             output = self.model.model(input_tensor)
             prediction = output > PREDICTION_THRESHOLD  # Apply thresholding
-        print(f"Model raw output: {output}")
-        print(f"Thresholded predictions: {prediction}")
+
         return prediction
