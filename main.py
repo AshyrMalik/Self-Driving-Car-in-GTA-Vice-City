@@ -38,8 +38,6 @@ class GameAI:
 
 
         paused = False
-        show_viz = True
-        frame_count = 0
         start_time = time.time()
 
         try:
@@ -50,11 +48,6 @@ class GameAI:
                     print("Paused" if paused else "Resumed")
                     time.sleep(0.3)  # Debounce
 
-                # Handle visualization toggle
-                if keyboard.is_pressed('v'):
-                    show_viz = not show_viz
-                    print("Visualization: " + ("On" if show_viz else "Off"))
-                    time.sleep(0.3)  # Debounce
 
                 # Exit condition
                 if keyboard.is_pressed('q'):
@@ -81,12 +74,6 @@ class GameAI:
                     except Exception as e:
                         print(f"Control error: {e}")
                         continue
-
-                    frame_count += 1
-                    if frame_count % 30 == 0:
-                        elapsed_time = time.time() - start_time
-                        fps = frame_count / elapsed_time
-                        print(f"FPS: {fps:.2f}")
 
                 # Small delay to prevent excessive CPU usage
                 time.sleep(LOOP_DELAY)
