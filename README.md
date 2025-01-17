@@ -1,7 +1,4 @@
 
-https://github.com/user-attachments/assets/3c8ff753-76ad-4c9a-97ab-bb49ff944be7
-
-
 # Self-Driving Car in Grand Theft Auto: San Andreas
 
 This project implements a self-driving car system in GTA: San Andreas using computer vision and deep learning. The AI model learns to drive by capturing game footage and predicting appropriate controls, enhanced with lane detection for better navigation.
